@@ -9,7 +9,7 @@ Project #2
 #include "Blist.h"
 using namespace std;
 
-// getters for Bnode - WORKS
+// getters for Bnode
 template <class T>
 T Bnode<T>::getVal(void) {
     return value;
@@ -25,7 +25,7 @@ Bnode<T>* Bnode<T>::getPrev() {
     return prev;
 }
 
-// getters for Blist - WORKS
+// getters for Blist
 template <class T>
 Bnode<T>* Blist<T>::getFront() {
     return front;
@@ -46,7 +46,7 @@ bool Blist<T>::empty(void) {
     }
 }
 
-// pop a node from the back - WORKS
+// pop a node from the back
 template <class T>
 T Blist<T>::pop_back(void) {
     // assumes list is not empty
@@ -64,7 +64,7 @@ T Blist<T>::pop_back(void) {
     return ret;
 }
 
-// pop a node from the front - WORKS
+// pop a node from the front
 template <class T>
 T Blist<T>::pop_front(void) {
     Bnode<T> *temp = front;
@@ -81,7 +81,7 @@ T Blist<T>::pop_front(void) {
     return ret;
 }
 
-// push a node onto the back - WORKS
+// push a node onto the back
 template <class T>
 void Blist<T>::push_back(T value) {
     Bnode<T> *newNode = new Bnode<T>;
@@ -101,7 +101,7 @@ void Blist<T>::push_back(T value) {
     return;
 }
 
-// push a node onto the front - WORKS
+// push a node onto the front
 template <class T>
 void Blist<T>::push_front(T value) {
     Bnode<T> *newNode = new Bnode<T>;
@@ -121,7 +121,7 @@ void Blist<T>::push_front(T value) {
     return;
 }
 
-// array access operator - WORKS
+// array access operator
 template <class T>
 T Blist<T>::operator [] (const int index) {
     Bnode<T> *runner = front;
@@ -131,14 +131,14 @@ T Blist<T>::operator [] (const int index) {
     return runner->value; // returns the value of the node at specified index
 }
 
-// default constructor - WORKS
+// default constructor
 template <class T>
 Blist<T>::Blist() {
     front = back = nullptr;
     size = 0;
 }
 
-// array constructor - WORKS
+// array constructor
 template <class T>
 Blist<T>::Blist(T arr[], int sz) {
     front = back = nullptr;
@@ -148,7 +148,7 @@ Blist<T>::Blist(T arr[], int sz) {
     }
 }
 
-// copy constructor - WORKS
+// copy constructor
 template <class T>
 Blist<T>::Blist(const Blist<T>& list) {
     front = back = nullptr;
@@ -160,7 +160,7 @@ Blist<T>::Blist(const Blist<T>& list) {
     }
 }
 
-// assignment operator - WORKS
+// assignment operator
 template <class T>
 Blist<T>& Blist<T>::operator = (const Blist<T>& list) {
     this->~Blist(); // empty the list first
@@ -173,7 +173,7 @@ Blist<T>& Blist<T>::operator = (const Blist<T>& list) {
     return *this;
 }
 
-// destructor - WORKS
+// destructor
 template <class T>
 Blist<T>::~Blist(void) {
     Bnode<T> *current = front;
@@ -186,7 +186,7 @@ Blist<T>::~Blist(void) {
     front = back = nullptr;
 }
 
-// print function - WORKS
+// print function
 template <class T>
 void Blist<T>::print(char symbol, void (*print)(T value)) {
     Bnode<T> *runner = front;
@@ -200,13 +200,13 @@ void Blist<T>::print(char symbol, void (*print)(T value)) {
 
 }
 
-// get size - WORKS
+// get size
 template <class T>
 int Blist<T>::getSize() {
     return size;
 }
 
-// bubble sort - WORKS
+// bubble sort
 template <class T>
 void Blist<T>::bsort(Bnode<T> *left, Bnode<T> *right) {
     Bnode<T> *l = left;
@@ -223,7 +223,7 @@ void Blist<T>::bsort(Bnode<T> *left, Bnode<T> *right) {
     }
 }
 
-// bubble sort w/ cmp - WORKS
+// bubble sort w/ cmp
 template <class T>
 void Blist<T>::bsort(Bnode<T> *left, Bnode<T> *right, int (*cmp)(T val, T val2)) {
     Bnode<T> *l = left;
@@ -240,7 +240,7 @@ void Blist<T>::bsort(Bnode<T> *left, Bnode<T> *right, int (*cmp)(T val, T val2))
     }
 }
 
-// insert - WORKS
+// insert
 template <class T>
 void Blist<T>::insert(Bnode<T> *p, T val) {
     if (p->next == nullptr || p == nullptr) {
@@ -257,7 +257,7 @@ void Blist<T>::insert(Bnode<T> *p, T val) {
     return;
 }
 
-// deletes a node from the list - WORKS
+// deletes a node from the list
 template <class T>
 void Blist<T>::del(Bnode<T>* p) {
     if (front == p) {
@@ -276,7 +276,7 @@ void Blist<T>::del(Bnode<T>* p) {
     return;
 }
 
-// creates a sublist of the given linked list - WORKS
+// creates a sublist of the given list
 template <class T>
 Blist<T> Blist<T>::sublist(Bnode<T> *b, Bnode<T> *e) {
     Bnode<T> *temp;
@@ -289,7 +289,7 @@ Blist<T> Blist<T>::sublist(Bnode<T> *b, Bnode<T> *e) {
     return list;
 }
 
-// returns a pointer to the node at index - WORKS
+// returns a pointer to the node at index
 template <class T>
 Bnode<T>* Blist<T>::at(const int& index) {
     Bnode<T> *temp = front;
@@ -299,7 +299,7 @@ Bnode<T>* Blist<T>::at(const int& index) {
     return temp;
 }
 
-// gives the position of given node in list - WORKS
+// gives the position of given node in list
 template <class T>
 int Blist<T>::getPos(Bnode<T> *p) {
     int position = 0;
